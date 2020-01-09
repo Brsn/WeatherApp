@@ -5,8 +5,15 @@
 body{
     background-color: #66CED6;
 }
+.container-1{
+    display:flex;
+}
 .complete {
     
+}
+#todayContainer{
+    display:flex;
+    margin: 1%;
 }
 .app-title{
     width: 300px;
