@@ -11,10 +11,10 @@ const descElementTwo = document.querySelector(".temperature-description-two p");
 const locationElement = document.querySelector(".location p");
 const locationElementTwo = document.querySelector(".location-two p");
 const notificationElement = document.querySelector(".notification");
-const maxLat = (Math.random() * 180)-90;
-const maxLong =(Math.random() * 360)-180;
+const maxLat = (Math.random() * 180) - 90;
+const maxLong = (Math.random() * 360) - 180;
 
- 
+
 //weather object, stores all the data.
 const weather = {};
 const randWeather = {};
@@ -113,19 +113,19 @@ function showError(error) {
     notificationElement.innerHTML = `<p> ${error.message}`
 }
 //grabs the weather object and stores it in data.
-   function getWeather(latitude, longitude){
+function getWeather(latitude, longitude) {
     //function getWeather(latitude, longitude) {
-    let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+    let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
     console.log(api)
- //  console.log(api = `http://api.openweathermap.org/data/2.5/weather?lat=${maxLat}&lon=${maxLong}&appid=${key}`);
+    //  console.log(api = `http://api.openweathermap.org/data/2.5/weather?lat=${maxLat}&lon=${maxLong}&appid=${key}`);
 
-    
+
     fetch(api)
-        .then(function(response){
+        .then(function (response) {
             let data = response.json();
             return data;
         })
-        .then(function(data){
+        .then(function (data) {
             //grabs api object information
             weather.temperature.value = Math.floor(data.main.temp - KELVIN);
             console.log(data.main.temp);
@@ -134,32 +134,32 @@ function showError(error) {
             weather.city = data.name;
             weather.country = data.sys.country;
         })
-        .then(function(){
+        .then(function () {
             displayWeather();
         });
-    }
-        function getRandomWeather(maxLat, maxLong){
-            let randApi = `http://api.openweathermap.org/data/2.5/weather?lat=${maxLat}&lon=${maxLong}&appid=${randKey}`;
-            
-            fetch(randApi)
-                .then(function(response){
-                    let randData = response.json();
-                    console.log("Yooo");
-                    return randData;
-                })
-                //grabs api object information
-                .then(function(randData){
-                    randWeather.temperature.value = Math.floor(randData.main.temp - KELVIN);
-                    console.log("What?");
-                    randWeather.description = randData.weather[0].description;
-                    console.log("What? :)");
-                    randWeather.iconId = randData.weather[0].icon;
-                    console.log("What?!");
-                    randWeather.city = randData.name;
-                    randWeather.country = randData.sys.country;
-                    console.log("Yooo!!");
-                })
-                .then(function(){
-                    displayRandomWeather();
-                });
+}
+function getRandomWeather(maxLat, maxLong) {
+    let randApi = `https://api.openweathermap.org/data/2.5/weather?lat=${maxLat}&lon=${maxLong}&appid=${randKey}`;
+
+    fetch(randApi)
+        .then(function (response) {
+            let randData = response.json();
+            console.log("Yooo");
+            return randData;
+        })
+        //grabs api object information
+        .then(function (randData) {
+            randWeather.temperature.value = Math.floor(randData.main.temp - KELVIN);
+            console.log("What?");
+            randWeather.description = randData.weather[0].description;
+            console.log("What? :)");
+            randWeather.iconId = randData.weather[0].icon;
+            console.log("What?!");
+            randWeather.city = randData.name;
+            randWeather.country = randData.sys.country;
+            console.log("Yooo!!");
+        })
+        .then(function () {
+            displayRandomWeather();
+        });
 }
