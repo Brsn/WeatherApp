@@ -3,9 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <title>Your Local Weather</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <link rel="stylesheet" href="style.css">
   </link>
 </head>
@@ -14,7 +15,8 @@
   <div class="container-fluid" , id="todayContainer">
     <!--weather container one -->
 
-    <div class="app-title">
+
+    <div class="col-lg-6 col-sm-12 app-title">
       <p>Your Local Weather</p>
 
       <div class="notification"> </div>
@@ -30,9 +32,8 @@
         <p>Salt Lake City</p>
       </div>
     </div>
-
     <!--weather container two -->
-    <div class="app-title-two">
+    <div class="col-lg-6 col-sm-12 app-title-two">
       <p>Random Weather</p>
       <div class="notification_two"></div>
       <div class="weather-container-two"> </div>
@@ -48,6 +49,7 @@
         <p>Salt Lake City</p>
       </div>
     </div>
+  </div>
   </div>
   <script src="weather.js"></script>
 </body>
